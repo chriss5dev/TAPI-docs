@@ -1,0 +1,109 @@
+Home
+
+About
+
+Example Usage
+-
+
+Enums
+- treasonRole
+- treasonClass
+- treasonAbility
+- treasonGadget
+- treasonPlayerState
+- treasonEndCondition
+
+Functions
+- TAPI_Version
+- GetClientScoreboardKarma
+- GetClientKarma
+- IsClientZombie
+- SetClientZombie
+- IsClientRevealed
+- SetClientRevealed
+- GetClientPseudoName
+- OverrideClientPseudoName
+- RestoreClientPseudoName
+- GetClientState
+- GetClientRoleID
+- SetClientRoleID
+- GetClientRole
+- SetClientRole
+- GetClientRoleUnfiltered
+- GetDetectiveIndex
+- GetDoctorIndex
+- GetClientClass
+- GetClientAbility
+- GetClientAbilities
+- ResetClientAbilities
+- AddClientAbility
+- GetClientGadget
+- GetClientGadgets
+- ResetClientGadgets
+- AddClientGadget
+- GetIsCarnage
+- IsClientSoloCustomRole
+- ClearCustomRole
+- GetCustomRoleIndex
+- GetCustomRoleID
+- GetCustomRoleIsConfirmed
+- SetCustomRoleIsConfirmed
+- GetClientRoleName
+- GetClientRoleNameVanilla
+- GetClientRoleIDName
+- IsCustomRoleValid
+- SetClientCustomRole
+- ResetClientCustomRole
+- GetClientCustomRoleIndex
+- ForceEndRound
+- RegisterCustomRole
+
+Callbacks (Global Forwards)
+- OnRegisterCustomRoles();
+- OnSoloStoppedRoundEnd(int client);
+- OnSoloWin(int client, int customRoleIndex);
+- OnClearCustomRoles();
+- OnClientAssignedCustomRole(int client, int customRoleIndex);
+- OnTreasonRoundEnd(int winner, int reason);
+
+Console Variables
+- tapi_deathmatchmusic
+
+Console Commands
+public:
+- tapi
+- tapi_int
+admin:
+- tapi_getability
+- tapi_getgadget
+- tapi_getroleid
+- tapi_getrole
+- tapi_getzombie
+- tapi_setzombie
+- tapi_getkarma
+- tapi_setkarma
+
+Console Variables (TCR)
+- tapi_cr_debug
+- tapi_keybind1
+- tapi_cr_min_traitor
+- tapi_cr_min_innocent
+- tapi_cr_min_solo
+- tapi_cr_max_traitor
+- tapi_cr_max_innocent
+- tapi_cr_max_solo
+
+Console Commands (TCR)
+public:
+- tapi_action1
+admin:
+- tapi_listcr
+- tcr_list
+- sm_listcr
+- tcr_get
+- sm_getcr
+- tcr_set
+- sm_setcr
+
+Custom Roles
+-

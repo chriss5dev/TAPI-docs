@@ -1,1 +1,4 @@
 site_name: Treason-API Documentation
+nav:
+    - Home: index.md
+    - About: about.md
