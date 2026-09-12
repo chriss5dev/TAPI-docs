@@ -1,4 +1,5 @@
 site_name: TAPI Documentation
+site_description: The official Treason-API documentation!
 nav:
     - Home: index.md
     - Table of Contents: nav.md
