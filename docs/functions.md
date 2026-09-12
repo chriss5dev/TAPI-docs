@@ -32,7 +32,7 @@
 *"Treason Custom Roles"*
 
 ## Notice
-- I **strongly** advise **all developers** understand [the TCR system](https://github.com/chriss5dev/Treason-API) before using these functions.
+- I **strongly** advise **all developers** understand [the TCR system](tcr.md) before using these functions.
 
 #### `ClearCustomRole`
 
