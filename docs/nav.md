@@ -14,6 +14,8 @@ This page contains a brief overview of each available page in the TAPI documenta
 
 ## **Usage**
 
+#### [Examples](examples.md)
+- A collection of example source code that demonstrates how to use TAPI at a basic level.
 #### [Enumerations](enums.md)
 - A list of the **enumerations** used in TAPI.
 #### [Native Functions](functions.md)

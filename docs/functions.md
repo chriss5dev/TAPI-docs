@@ -23,6 +23,8 @@
 
 #### `TAPI_Version`
 
+[**Example Usage**](examples.md#tapi_version)
+
     // Returns the current version of the TAPI plugin as a 6-digit integer.
     native int TAPI_Version();
     
@@ -183,6 +185,8 @@ Discover documentation and usage details at [The TCR System.](tcr.md)
 
 #### `SetClientZombie`
 
+[**Example Usage**](examples.md#setclientzombie)
+
     //Sets whether a client is a zombie.
     //Only valid state values are 0 and 1. (false and true)
     //Role value 0 will assign the role based on the current role.
@@ -292,6 +296,8 @@ Discover documentation and usage details at [The TCR System.](tcr.md)
 
 #### `GetClientRole`
 
+[**Example Usage**](examples.md#getclientrole)
+
     //Returns client index's Treason role as "treasonRole" or "int".
     //Returns 0 (TRole_Unassigned / TR_None) if unassigned, spectator, or dead.
     //Dead players are "filtered out" and return 0 (TRole_Unassigned / TR_None).
@@ -327,6 +333,8 @@ Discover documentation and usage details at [The TCR System.](tcr.md)
     native any GetClientRoleUnfiltered(int client);
     
 #### `GetClientRoleName`
+
+[**Example Usage**](examples.md#getclientrolename)
 
     //Gets client index's role name as an char[] and copies the result to a pre-existing array.
     //Includes all non-conventional role names such as "Ghost" and custom roles, if also desired.
