@@ -221,6 +221,7 @@
 <h1 id="tapi-utilities"><strong>TAPI Utilities</strong></h1>
 <p><em>"Treason-API"</em></p>
 <h4 id="tapi_version"><code>TAPI_Version</code></h4>
+<p><a href="../examples/#tapi_version"><strong>Example Usage</strong></a></p>
 <pre><code>// Returns the current version of the TAPI plugin as a 6-digit integer.
 native int TAPI_Version();
 </code></pre>
@@ -358,6 +359,7 @@ native any SetClientKarma(int client, int karma);
 native int IsClientZombie(int client);
 </code></pre>
 <h4 id="setclientzombie"><code>SetClientZombie</code></h4>
+<p><a href="../examples/#setclientzombie"><strong>Example Usage</strong></a></p>
 <pre><code>//Sets whether a client is a zombie.
 //Only valid state values are 0 and 1. (false and true)
 //Role value 0 will assign the role based on the current role.
@@ -454,6 +456,7 @@ native any GetClientRoleID(int client);
 native any SetClientRoleID(int client, int role);
 </code></pre>
 <h4 id="getclientrole"><code>GetClientRole</code></h4>
+<p><a href="../examples/#getclientrole"><strong>Example Usage</strong></a></p>
 <pre><code>//Returns client index's Treason role as "treasonRole" or "int".
 //Returns 0 (TRole_Unassigned / TR_None) if unassigned, spectator, or dead.
 //Dead players are "filtered out" and return 0 (TRole_Unassigned / TR_None).
@@ -487,6 +490,7 @@ native any SetClientRole(int client, int role);
 native any GetClientRoleUnfiltered(int client);
 </code></pre>
 <h4 id="getclientrolename"><code>GetClientRoleName</code></h4>
+<p><a href="../examples/#getclientrolename"><strong>Example Usage</strong></a></p>
 <pre><code>//Gets client index's role name as an char[] and copies the result to a pre-existing array.
 //Includes all non-conventional role names such as "Ghost" and custom roles, if also desired.
 //Does not work without treason_customroles (TCR) installed.

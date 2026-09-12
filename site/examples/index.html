@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>Table of Contents - TAPI Documentation</title>
+        <title>Examples - TAPI Documentation</title>
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/fontawesome.min.css" rel="stylesheet">
         <link href="../css/brands.min.css" rel="stylesheet">
@@ -38,7 +38,7 @@
                                 <a href=".." class="nav-link">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a href="./" class="nav-link active" aria-current="page">Table of Contents</a>
+                                <a href="../nav/" class="nav-link">Table of Contents</a>
                             </li>
                             <li class="nav-item">
                                 <a href="../credits/" class="nav-link">Contributors</a>
@@ -57,16 +57,6 @@
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
-                            <li class="nav-item">
-                                <a rel="prev" href=".." class="nav-link">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a rel="next" href="../credits/" class="nav-link">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
                             <li class="nav-item dropdown">
                               <button id="theme-menu" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle theme" class="nav-link dropdown-toggle">
                                 <i class="fa-solid fa-circle-half-stroke fa-fw"></i>
@@ -115,13 +105,21 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#table-of-contents" class="nav-link">Table of Contents</a>
+            <li class="nav-item" data-bs-level="1"><a href="#examples" class="nav-link">Examples</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#general" class="nav-link">General</a>
+            <li class="nav-item" data-bs-level="2"><a href="#getclientrole" class="nav-link">GetClientRole</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#usage" class="nav-link">Usage</a>
+            <li class="nav-item" data-bs-level="2"><a href="#getclientrolename" class="nav-link">GetClientRoleName</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#tapi_version" class="nav-link">TAPI_Version</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#setclientzombie" class="nav-link">SetClientZombie</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -132,58 +130,118 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="table-of-contents"><strong>Table of Contents</strong></h1>
-<p>This page contains a brief overview of each available page in the TAPI documentation.</p>
-<h2 id="general"><strong>General</strong></h2>
-<h4 id="home"><a href="../">Home</a></h4>
-<ul>
-<li>Need I say less?</li>
-</ul>
-<h4 id="contributors"><a href="../credits/">Contributors</a></h4>
-<ul>
-<li>All the people that made TAPI possible.</li>
-</ul>
-<h4 id="ai-usage"><a href="../ai/">AI Usage</a></h4>
-<ul>
-<li>An overview of the (lack of) generative AI usage in the creation of TAPI.</li>
-</ul>
-<h4 id="license"><a href="../license/">License</a></h4>
-<ul>
-<li>TAPI uses the <a href="https://www.gnu.org/licenses/gpl-3.0.en.html#license-text">GNU General Public License 3.0.</a></li>
-</ul>
-<h2 id="usage"><strong>Usage</strong></h2>
-<h4 id="examples"><a href="../examples/">Examples</a></h4>
-<ul>
-<li>A collection of example source code that demonstrates how to use TAPI at a basic level.</li>
-</ul>
-<h4 id="enumerations"><a href="../enums/">Enumerations</a></h4>
-<ul>
-<li>A list of the <strong>enumerations</strong> used in TAPI.</li>
-</ul>
-<h4 id="native-functions"><a href="../functions/">Native Functions</a></h4>
-<ul>
-<li>A list of the <strong>functions</strong> provided by TAPI.</li>
-</ul>
-<h4 id="global-forwards"><a href="../forwards/">Global Forwards</a></h4>
-<ul>
-<li>A list of the <strong>global forwards</strong> called by TAPI.</li>
-</ul>
-<h4 id="console-variables"><a href="../convars/">Console Variables</a></h4>
-<ul>
-<li>A list of the <strong>ConVars</strong> read by TAPI.</li>
-</ul>
-<h4 id="console-commands"><a href="../cmds/">Console Commands</a></h4>
-<ul>
-<li>A list of the <strong>commands</strong> provided by TAPI.</li>
-</ul>
-<h4 id="the-tcr-system"><a href="../tcr/">The TCR System</a></h4>
-<ul>
-<li>An explanation of the <strong>custom role system</strong> provided by TAPI.</li>
-</ul>
-<h4 id="creating-custom-roles"><a href="../tcr_create/">Creating Custom Roles</a></h4>
-<ul>
-<li>An introduction to <strong>creating TCR-based custom roles.</strong></li>
-</ul></div>
+<h1 id="examples"><strong>Examples</strong></h1>
+<h2 id="getclientrole"><code>GetClientRole</code></h2>
+<pre><code>#include &lt;sourcemod&gt;
+#include &lt;treason&gt;
+
+// When this plugin starts...
+public void OnPluginStart()
+{
+    // Register a console command "sm_myrole" (!myrole)
+    RegConsoleCmd("sm_myrole", CmdMyRole);
+}
+
+Action CmdMyRole(int client, int args)
+{
+    // Get the role of the client that called the command
+    int role = GetClientRole(client);
+
+    // Print the role to the client using formatting parameters
+    PrintToChat(client, "Your role is: %d", role)
+
+    // Tell SourceMod this command is done.
+    return Plugin_Handled;
+}
+</code></pre>
+<h2 id="getclientrolename"><code>GetClientRoleName</code></h2>
+<pre><code>#include &lt;sourcemod&gt;
+#include &lt;treason&gt;
+
+// When this plugin starts...
+public void OnPluginStart()
+{
+    // Register a console command "sm_myrolename" (!myrolename)
+    RegConsoleCmd("sm_myrolename", CmdMyRoleName);
+}
+
+Action CmdMyRoleName(int client, int args)
+{
+    // Create a char[] (C-String) to store the result of `GetClientRoleName`
+    char nameBuffer[32];
+
+    // Get the name of the role of the calling client
+    GetClientRoleName(client, true, nameBuffer, sizeof(nameBuffer));
+
+    // Print `nameBuffer` to the client using formatting parameters
+    PrintToChat(client, "Your role is: %s", nameBuffer);
+
+    // Tell SourceMod this command is done.
+    return Plugin_Handled;
+}
+</code></pre>
+<h2 id="tapi_version"><code>TAPI_Version</code></h2>
+<pre><code>#include &lt;sourcemod&gt;
+#include &lt;treason&gt;
+
+// 1.6.1 (01.06.01)
+#define REQUIRED_TAPI_VERSION 010601
+
+// Once all plugins are loaded, including TAPI...
+public void OnAllPluginsLoaded()
+{
+    // If the TAPI version is less than the required version...
+    if (TAPI_Version() &lt; REQUIRED_TAPI_VERSION)
+    {
+        // Throw an error
+        SetFailState("[ERROR] This plugin requires Treason-API version %d or later!", REQUIRED_TAPI_VERSION);
+    }
+}
+</code></pre>
+<h2 id="setclientzombie"><code>SetClientZombie</code></h2>
+<pre><code>#include &lt;sourcemod&gt;
+#include &lt;treason&gt;
+
+// When this plugin starts...
+public void OnPluginStart()
+{
+    // Register a console command "sm_zombie" (!zombie)
+    RegConsoleCmd("sm_zombie", CmdZombie);
+}
+
+Action CmdZombie(int client, int args)
+{
+    // If command is called with incorrect argument amount
+    if(args != 1)
+    {
+        // Describe usage in chat
+        PrintToChat(client, "Usage: sm_zombie &lt;isZombie&gt;");
+
+        // Tell SourceMod this command is done.
+        return Plugin_Handled;
+    }
+
+    // Get isZombie argument
+    int isZombie = GetCmdArgInt(0);
+
+    // Set the caller client's zombie state to `isZombie`
+    // If failure (false), print error
+    if(!SetClientZombie(client, isZombie, 0))
+    {
+        // Print `isZombie` to the client using formatting parameters
+        PrintToChat(client, "Zombie state '%d' is invalid!", isZombie);
+
+        // Tell SourceMod this command is done.
+        return Plugin_Handled;
+    }
+
+    // Print `isZombie` to the client using formatting parameters
+    PrintToChat(client, "Zombie state set to %d", isZombie);
+
+    // Tell SourceMod this command is done.
+    return Plugin_Handled;
+}
+</code></pre></div>
             </div>
         </div>
 
