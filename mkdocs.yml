@@ -1,4 +1,7 @@
-site_name: Treason-API Documentation
+site_name: TAPI Documentation
 nav:
     - Home: index.md
-    - About: about.md
+    - Table of Contents: nav.md
+    - Contributors: credits.md
+    - AI Usage: ai.md
+    - License: license.md

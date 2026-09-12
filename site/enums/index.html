@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Enums - TAPI Documentation</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">TAPI Documentation</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../nav/" class="nav-link">Table of Contents</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../credits/" class="nav-link">Contributors</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../ai/" class="nav-link">AI Usage</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../license/" class="nav-link">License</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#overview" class="nav-link">Overview</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#enumerations" class="nav-link">Enumerations</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#treasonrole" class="nav-link">treasonRole</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#treasonclass" class="nav-link">treasonClass</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#treasonability" class="nav-link">treasonAbility</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#treasongadget" class="nav-link">treasonGadget</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#treasonplayerstate" class="nav-link">treasonPlayerState</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#treasonendcondition" class="nav-link">treasonEndCondition</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<style>
+    h2 {
+        color: green;
+        font-weight: bold;
+    }
+    h4 {
+        font-weight: bold;
+    }
+    h5 {
+        color: purple;
+        font-weight: bold;
+    }
+</style>
+
+<h1 id="overview"><strong>Overview</strong></h1>
+<ul>
+<li>The <strong>Treason-API (TAPI)</strong> creates enumerations for the magic numbers <strong>Treason (KVT)</strong> stores to memory.</li>
+<li>This generally <strong>improves readability</strong>, and therefore usage is <strong>highly encouraged.</strong></li>
+<li>It is common for these enumerations to be applicable to TAPI, <strong>but not always meaningful to KVT.</strong><ul>
+<li><em>Example 1: <code>TRole_Ghost</code></em></li>
+<li><em>Example 2: <code>TEndCondition_CustomSolo</code></em>  </li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Note that enumerations are a collection of enumerators. Not the other way around.
+Example: <code>treasonRole</code> (enumeration) contains <code>TR_Traitor</code> (enumerator)</p>
+</blockquote>
+<h1 id="enumerations"><strong>Enumerations</strong></h1>
+<!-- Roles -->
+<h2 id="treasonrole">treasonRole</h2>
+<ul>
+<li>Used to semantically express a role in <strong>Treason.</strong></li>
+<li>Some entries do <strong>not</strong> directly map to the <strong>KVT role ID.</strong></li>
+</ul>
+<h5 id="trole_unassigned">TRole_Unassigned</h5>
+<ul>
+<li>Alias: <code>TR_None</code></li>
+</ul>
+<h5 id="trole_innocent">TRole_Innocent</h5>
+<ul>
+<li>Alias: <code>TR_Innocent</code></li>
+</ul>
+<h5 id="trole_traitor">TRole_Traitor</h5>
+<ul>
+<li>Alias: <code>TR_Traitor</code></li>
+</ul>
+<h5 id="trole_detective">TRole_Detective</h5>
+<ul>
+<li>Alias: <code>TR_Detective</code></li>
+</ul>
+<h5 id="trole_doctor">TRole_Doctor</h5>
+<ul>
+<li>Alias: <code>TR_Doctor</code></li>
+</ul>
+<h5 id="trole_annihilator">TRole_Annihilator</h5>
+<ul>
+<li>Alias: <code>TR_Annihilator</code></li>
+</ul>
+<h5 id="trole_ghost">TRole_Ghost</h5>
+<ul>
+<li>Alias: <code>TR_Ghost</code></li>
+</ul>
+<h5 id="trole_independent">TRole_Independent</h5>
+<ul>
+<li>Alias: <code>TR_Solo</code></li>
+</ul>
+<!-- Classes -->
+<h2 id="treasonclass">treasonClass</h2>
+<ul>
+<li>Used to express a weight class in <strong>Treason.</strong></li>
+<li><strong>Maps directly to the magic values Treason understands.</strong> (With the exception of <code>TClass_Invalid</code>)</li>
+</ul>
+<h5 id="tclass_invalid">TClass_Invalid</h5>
+<ul>
+<li>Alias: <code>TC_None</code></li>
+</ul>
+<h5 id="tclass_light">TClass_Light</h5>
+<ul>
+<li>Alias: <code>TC_Light</code></li>
+</ul>
+<h5 id="tclass_medium">TClass_Medium</h5>
+<ul>
+<li>Alias: <code>TC_Med</code></li>
+</ul>
+<h5 id="tclass_heavy">TClass_Heavy</h5>
+<ul>
+<li>Alias: <code>TC_Heavy</code></li>
+</ul>
+<!-- Abilities -->
+<h2 id="treasonability">treasonAbility</h2>
+<ul>
+<li>Used to express an ability in <strong>Treason.</strong></li>
+<li><strong>Maps directly to the magic values Treason understands.</strong></li>
+</ul>
+<h5 id="tability_none">TAbility_None</h5>
+<ul>
+<li>Alias: <code>TA_None</code></li>
+</ul>
+<h5 id="tability_medkit">TAbility_Medkit</h5>
+<ul>
+<li>Alias: <code>TA_Medkit</code></li>
+</ul>
+<h5 id="tability_shield">TAbility_Shield</h5>
+<ul>
+<li>Alias: <code>TA_Shield</code></li>
+</ul>
+<h5 id="tability_adrenaline">TAbility_Adrenaline</h5>
+<ul>
+<li>Alias: <code>TA_Adrenaline</code></li>
+</ul>
+<h5 id="tability_clueradar">TAbility_ClueRadar</h5>
+<ul>
+<li>Alias: <code>TA_ClueRadar</code></li>
+</ul>
+<h5 id="tability_teamradar">TAbility_TeamRadar</h5>
+<ul>
+<li>Alias: <code>TA_TeamRadar</code></li>
+</ul>
+<h5 id="tability_traitorradar">TAbility_TraitorRadar</h5>
+<ul>
+<li>Alias: <code>TA_TRadar</code></li>
+</ul>
+<h5 id="tability_zombierevive">TAbility_ZombieRevive</h5>
+<ul>
+<li>Alias: <code>TA_Zombie</code></li>
+</ul>
+<h5 id="tability_detectiveradar">TAbility_DetectiveRadar</h5>
+<ul>
+<li>Alias: <code>TA_DRadar</code></li>
+</ul>
+<h5 id="tability_detectiveresuscitate">TAbility_DetectiveResuscitate</h5>
+<ul>
+<li>Alias: <code>TA_DetectiveRes</code></li>
+</ul>
+<h5 id="tability_rangeheal">TAbility_RangeHeal</h5>
+<ul>
+<li>Alias: <code>TA_RangeHeal</code></li>
+</ul>
+<h5 id="tability_rangeadrenaline">TAbility_RangeAdrenaline</h5>
+<ul>
+<li>Alias: <code>TA_RangeAdrenaline</code></li>
+</ul>
+<h5 id="tability_doctorresuscitate">TAbility_DoctorResuscitate</h5>
+<ul>
+<li>Alias: <code>TA_DoctorRes</code></li>
+</ul>
+<h5 id="tability_bodyradar">TAbility_BodyRadar</h5>
+<ul>
+<li>Alias: <code>TA_BodyRadar</code></li>
+</ul>
+<h5 id="tability_ghosttransform">TAbility_GhostTransform</h5>
+<ul>
+<li>Alias: <code>TA_Ghost</code></li>
+</ul>
+<h5 id="tability_ghostradar">TAbility_GhostRadar</h5>
+<ul>
+<li>Alias: <code>TA_GhostRadar</code></li>
+</ul>
+<!-- Gadgets -->
+<h2 id="treasongadget">treasonGadget</h2>
+<ul>
+<li>Used to express a gadget in <strong>Treason.</strong></li>
+<li><strong>Maps directly to the magic values Treason understands.</strong></li>
+</ul>
+<h5 id="tgadget_none">TGadget_None</h5>
+<ul>
+<li>Alias: <code>TG_None</code></li>
+</ul>
+<h5 id="tgadget_bomb">TGadget_Bomb</h5>
+<ul>
+<li>Alias: <code>TG_Bomb</code></li>
+</ul>
+<h5 id="tgadget_lethaltaser">TGadget_LethalTaser</h5>
+<ul>
+<li>Alias: <code>TG_CarnageTaser</code></li>
+</ul>
+<h5 id="tgadget_silencedrevolver">TGadget_SilencedRevolver</h5>
+<ul>
+<li>Alias: <code>TG_Revolver</code></li>
+</ul>
+<h5 id="tgadget_spikedbat">TGadget_SpikedBat</h5>
+<ul>
+<li>Alias: <code>TG_SpikedBat</code></li>
+</ul>
+<h5 id="tgadget_disguise">TGadget_Disguise</h5>
+<ul>
+<li>Alias: <code>TG_Disguise</code></li>
+</ul>
+<h5 id="tgadget_beartrap">TGadget_BearTrap</h5>
+<ul>
+<li>Alias: <code>TG_BearTrap</code></li>
+</ul>
+<h5 id="tgadget_landmine">TGadget_Landmine</h5>
+<ul>
+<li>Alias: <code>TG_Landmine</code></li>
+</ul>
+<h5 id="tgadget_poisondart">TGadget_PoisonDart</h5>
+<ul>
+<li>Alias: <code>TG_PoisonDart</code></li>
+</ul>
+<h5 id="tgadget_silencedpistol">TGadget_SilencedPistol</h5>
+<ul>
+<li>Alias: <code>TG_Pistol</code></li>
+</ul>
+<h5 id="tgadget_scanner">TGadget_Scanner</h5>
+<ul>
+<li>Alias: <code>TG_Scanner</code></li>
+</ul>
+<h5 id="tgadget_stuntaser">TGadget_StunTaser</h5>
+<ul>
+<li>Alias: <code>TG_Taser</code></li>
+</ul>
+<h5 id="tgadget_healingstation">TGadget_HealingStation</h5>
+<ul>
+<li>Alias: <code>TG_HealingStation</code></li>
+</ul>
+<!-- Player States -->
+<h2 id="treasonplayerstate">treasonPlayerState</h2>
+<ul>
+<li>Used to express a player state in <strong>Treason.</strong></li>
+<li><strong>Maps directly to the magic values Treason understands.</strong></li>
+<li>Most enumerators are unidentified and require further reverse engineering or developer-help to understand.</li>
+<li>This is useful for <strong>read-only</strong> operations such as <code>GetClientState</code>.</li>
+</ul>
+<h5 id="tplayerstate_default-0">TPlayerState_Default <code>[0]</code></h5>
+<ul>
+<li>Alias: <code>TS_Default</code></li>
+</ul>
+<h5 id="tplayerstate_unknown1-1">TPlayerState_Unknown1 <code>[1]</code></h5>
+<ul>
+<li>Alias: <code>TS_Unknown1</code></li>
+</ul>
+<h5 id="tplayerstate_spectator-2">TPlayerState_Spectator <code>[2]</code></h5>
+<ul>
+<li>Alias: <code>TS_Spectator</code></li>
+</ul>
+<h5 id="tplayerstate_freezecam-3">TPlayerState_FreezeCam <code>[3]</code></h5>
+<ul>
+<li>Alias: <code>TS_FreezeCam</code></li>
+</ul>
+<h5 id="tplayerstate_unknown2-4">TPlayerState_Unknown2 <code>[4]</code></h5>
+<ul>
+<li>Alias: <code>TS_Unknown2</code></li>
+</ul>
+<h5 id="tplayerstate_injured-5">TPlayerState_Injured <code>[5]</code></h5>
+<ul>
+<li>Alias: <code>TS_Injured</code></li>
+</ul>
+<h5 id="tplayerstate_ghost-6">TPlayerState_Ghost <code>[6]</code></h5>
+<ul>
+<li>Alias: <code>TS_Ghost</code></li>
+</ul>
+<h5 id="tplayerstate_unknown3-7">TPlayerState_Unknown3 <code>[7]</code></h5>
+<ul>
+<li>Alias: <code>TS_Unknown3</code></li>
+</ul>
+<h5 id="tplayerstate_unknown4-8">TPlayerState_Unknown4 <code>[8]</code></h5>
+<ul>
+<li>Alias: <code>TS_Unknown4</code></li>
+</ul>
+<h5 id="tplayerstate_uifrozen-9">TPlayerState_UIFrozen <code>[9]</code></h5>
+<ul>
+<li>Alias: <code>TS_UIFrozen</code></li>
+</ul>
+<!-- End Conditions -->
+<h2 id="treasonendcondition">treasonEndCondition</h2>
+<ul>
+<li>Used to express a round-end condition in <strong>TAPI.</strong></li>
+<li><strong>Not intended for use outside of <code>ForceEndRound</code>.</strong></li>
+</ul>
+<h5 id="tendcondition_teamwin">TEndCondition_TeamWin</h5>
+<ul>
+<li>Alias: <code>TE_TeamWin</code></li>
+</ul>
+<h5 id="tendcondition_deathmatch">TEndCondition_Deathmatch</h5>
+<ul>
+<li>Alias: <code>TE_Deathmatch</code></li>
+</ul>
+<h5 id="tendcondition_time">TEndCondition_Time</h5>
+<ul>
+<li>Alias: <code>TE_Time</code></li>
+</ul>
+<h5 id="tendcondition_customsolo">TEndCondition_CustomSolo</h5>
+<ul>
+<li>Alias: <code>TE_Solo</code></li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

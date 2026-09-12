@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Functions - TAPI Documentation</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">TAPI Documentation</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../nav/" class="nav-link">Table of Contents</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../credits/" class="nav-link">Contributors</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../ai/" class="nav-link">AI Usage</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../license/" class="nav-link">License</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#overview" class="nav-link">Overview</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#tapi-utilities" class="nav-link">TAPI Utilities</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#tcr-utilities" class="nav-link">TCR Utilities</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#notice" class="nav-link">Notice</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#game-utilities" class="nav-link">Game Utilities</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#-find-clients-" class="nav-link">- Find Clients -</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#-round-data-" class="nav-link">- Round Data -</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#-round-management-" class="nav-link">- Round Management -</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#client-utilities" class="nav-link">Client Utilities</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#-karma-" class="nav-link">- Karma -</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#-zombie-state-" class="nav-link">- Zombie State -</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#-revealed-state-" class="nav-link">- Revealed State -</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#-pseudonames-" class="nav-link">- PseudoNames -</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#-player-state-" class="nav-link">- Player State -</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#-client-roles-" class="nav-link">- Client Roles -</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#-client-custom-roles-" class="nav-link">- Client Custom Roles -</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#-weight-classes-" class="nav-link">- Weight Classes -</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#-abilities-" class="nav-link">- Abilities -</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#-gadgets-" class="nav-link">- Gadgets -</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<style>
+    h4 {
+        font-weight: bold;
+    }
+</style>
+
+<h1 id="overview"><strong>Overview</strong></h1>
+<ul>
+<li>The <strong>Treason-API (TAPI)</strong> creates native functions for invoking or manipulating various Treason-related behaviors.</li>
+<li>These functions serve as a large abstraction layer for complex underlying behaviors such as:<ul>
+<li>Build-specific details<ul>
+<li>Offsets</li>
+<li>Function Signatures</li>
+</ul>
+</li>
+<li>Fully-custom behavior-management systems<ul>
+<li>Custom role system</li>
+<li>Pseudoname overrides</li>
+</ul>
+</li>
+<li>Semantic translation layers<ul>
+<li><code>TR_Ghost</code> and <code>TR_Solo</code> of <code>treasonRole</code> enumeration</li>
+<li><code>GetClientRole</code> filtering out spectators and dead players.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="tapi-utilities"><strong>TAPI Utilities</strong></h1>
+<p><em>"Treason-API"</em></p>
+<h4 id="tapi_version"><code>TAPI_Version</code></h4>
+<pre><code>// Returns the current version of the TAPI plugin as a 6-digit integer.
+native int TAPI_Version();
+</code></pre>
+<h1 id="tcr-utilities"><strong>TCR Utilities</strong></h1>
+<p><em>"Treason Custom Roles"</em></p>
+<h2 id="notice">Notice</h2>
+<ul>
+<li>I <strong>strongly</strong> advise <strong>all developers</strong> understand <a href="https://github.com/chriss5dev/Treason-API">the TCR system</a> before using these functions.</li>
+</ul>
+<h4 id="clearcustomrole"><code>ClearCustomRole</code></h4>
+<pre><code>//Clears the id of a CustomRole using its custom role index.
+//This effectively "deletes" a custom role from the internal custom roles array by marking it as invalid.
+
+//@param customRoleIndex    The target custom role index.
+native void ClearCustomRole(int customRoleIndex);
+</code></pre>
+<h4 id="getcustomroleindex"><code>GetCustomRoleIndex</code></h4>
+<pre><code>//Finds the CustomRole index of a CustomRole by searching for a string id.
+//Returns -1 if no CustomRole can be found.
+
+//@param id                 The string id to search for.
+//@return                   The resulting CustomRole index.
+native int GetCustomRoleIndex(char[] id);
+</code></pre>
+<h4 id="getcustomroleid"><code>GetCustomRoleID</code></h4>
+<pre><code>//Gets the CustomRole.id (string) of the given custom role index.
+//Returns false if the custom role index is invalid.
+//Returns true on success.
+
+//@param customRoleIndex    The target custom role index.
+//@param result             The a buffer to store the string ID of the target custom role index. MaxSize is 32.
+//@return                   Returns false if the custom role index is invalid.
+native bool GetCustomRoleID(int customRoleIndex, char[] result);
+</code></pre>
+<h4 id="getcustomroleisconfirmed"><code>GetCustomRoleIsConfirmed</code></h4>
+<pre><code>//Gets the CustomRole.isConfirmed (bool) of the given custom role index.
+//Additionally returns false on failure.
+
+//@param customRoleIndex        The target custom role index.
+//@return                   The value of isConfirmed, assuming the check didn't fail.
+
+native bool GetCustomRoleIsConfirmed(int customRoleIndex);
+</code></pre>
+<h4 id="setcustomroleisconfirmed"><code>SetCustomRoleIsConfirmed</code></h4>
+<pre><code>//Sets the CustomRole.isConfirmed (bool) of the given custom role index.
+
+//@param customRoleIndex    The target custom role index.
+//@return                   Returns true if successful.
+
+native bool SetCustomRoleIsConfirmed(int customRoleIndex, bool state);
+</code></pre>
+<h4 id="registercustomrole"><code>RegisterCustomRole</code></h4>
+<p>Discover documentation and usage details at <a href="../tcr/">The TCR System.</a></p>
+<h1 id="game-utilities"><strong>Game Utilities</strong></h1>
+<h2 id="-find-clients-">- Find Clients -</h2>
+<h4 id="getdetectiveindex"><code>GetDetectiveIndex</code></h4>
+<pre><code>//Returns the client index of the Detective client.
+//Returns 0 if no detective can be found.
+//"Client 0" errors will occur if ignoring the "no detective" case above.
+//Depends on GetClientRole().
+
+//@return                   The index of the round's Detective if one can be found. 0 if none can be found.
+
+native int GetDetectiveIndex();
+</code></pre>
+<h4 id="getdoctorindex"><code>GetDoctorIndex</code></h4>
+<pre><code>//Returns the client index of the Detective client.
+//Returns 0 if no doctor can be found.
+//"Client 0" errors will occur if ignoring the "no doctor" case above.
+//Depends on GetClientRole().
+
+//@return                   The index of the round's Doctor if one can be found. 0 if none can be found.
+
+native int GetDoctorIndex();
+</code></pre>
+<h2 id="-round-data-">- Round Data -</h2>
+<h4 id="getiscarnage"><code>GetIsCarnage</code></h4>
+<pre><code>//Gets the "iscarnage" boolean of "round_start", without having to hook the event and store it manually.
+//Returns true if it is currently Annihilation.
+//Returns false if it is not.
+
+//@param includePreRound    If true, this function will also return true during the pre-round state, before the Annihilator role is displayed. ("Preparing...")
+//@return                   Returns the current state of Annihilation, as described above.
+
+native any GetIsCarnage(bool includePreRound);
+</code></pre>
+<h2 id="-round-management-">- Round Management -</h2>
+<h4 id="forceendround"><code>ForceEndRound</code></h4>
+<pre><code>//Attempts to force the round to end given custom conditions.
+//Resolves the custom conditions into more complex sets of event keys, then uses a deferred SDKCall to end the round.
+//*Note the existence of ConVar "tapi_deathmatchmusic".
+
+//@param endCondition       The desired endCondition, as a treasonEndCondition or an int.
+//@param winner             The desired winning team or client index, depending on the endCondition.
+//@return                   Returns true on success, or false on failure.
+
+native any ForceEndRound(any endCondition, int winner);
+</code></pre>
+<h1 id="client-utilities"><strong>Client Utilities</strong></h1>
+<h2 id="-karma-">- Karma -</h2>
+<h4 id="getclientscoreboardkarma"><code>GetClientScoreboardKarma</code></h4>
+<pre><code>//Returns the scoreboard karma value of a client index as an integer.
+//Returns -1 if PlayerResourceEntity is invalid.
+
+//@param client             The target client index.
+//@return                   The Karma value of the provided client, taken from the netprop supplying the scoreboard.
+native int GetClientScoreboardKarma(int client);
+</code></pre>
+<h4 id="getclientkarma"><code>GetClientKarma</code></h4>
+<pre><code>//Returns the realtime karma value of a client index as an integer.
+//Returns -1 if client index is invalid.
+
+//@param client             The target client index.
+//@return                   The Karma value of the provided client, taken from the server memory.
+native int GetClientKarma(int client);
+</code></pre>
+<h4 id="setclientkarma"><code>SetClientKarma</code></h4>
+<pre><code>//Sets a client index's realtime karma value.
+//Returns false if client index is invalid.
+//Returns true on success.
+
+//@param client             The target client index.
+//@param karma              The desired karma to set, as an integer.
+//@return                   Returns false boolean if client index is invalid.
+native any SetClientKarma(int client, int karma);
+</code></pre>
+<h2 id="-zombie-state-">- Zombie State -</h2>
+<h4 id="isclientzombie"><code>IsClientZombie</code></h4>
+<pre><code>//Returns int 1 if client index is a zombie.
+//Returns int 0 if client index is normal.
+//Returns int -1 if PlayerResourceEntity is invalid.
+
+//@param client             The target client index.
+//@return                   The Zombie state of the provided client, formatted as described above.
+native int IsClientZombie(int client);
+</code></pre>
+<h4 id="setclientzombie"><code>SetClientZombie</code></h4>
+<pre><code>//Sets whether a client is a zombie.
+//Only valid state values are 0 and 1. (false and true)
+//Role value 0 will assign the role based on the current role.
+//Role value 1 will assign the client as a zombie innocent.
+//Role value 2 will assign the client as a zombie traitor.
+//Returns false on failure.
+//Returns true on success.
+
+//@param client             The target client index.
+//@param isZombie           The Zombie state of the provided client, formatted as described above.
+//@param role               The desired role to assign, formatted as described above.
+native any SetClientZombie(int client, int isZombie, int role);
+</code></pre>
+<h2 id="-revealed-state-">- Revealed State -</h2>
+<h4 id="isclientrevealed"><code>IsClientRevealed</code></h4>
+<pre><code>//Sets whether a client is revealed.
+//Only valid state values are 0 and 1. (false and true)
+
+//@param client             The target client index.
+//@return                   The revealed state of the provided client, formatted as described above.                
+native any IsClientRevealed(int client);
+</code></pre>
+<h4 id="setclientrevealed"><code>SetClientRevealed</code></h4>
+<pre><code>//Sets whether a client is revealed.
+//Only valid state values are 0 and 1. (false and true)
+//Returns false on failure.
+//Returns true on success.
+
+//@param client             The target client index.
+//@param isRevealed         The desired revealed state to apply to the provided client, formatted as described above.
+native any SetClientRevealed(int client, int isRevealed);
+</code></pre>
+<h2 id="-pseudonames-">- PseudoNames -</h2>
+<h4 id="getclientpseudoname"><code>GetClientPseudoName</code></h4>
+<pre><code>//Returns the PseudoName of a client index as an integer.
+
+//@param client             The target client index.
+//@return                   The PseudoName of the provided client as an integer.
+
+native int GetClientPseudoName(int client);
+</code></pre>
+<h4 id="overrideclientpseudoname"><code>OverrideClientPseudoName</code></h4>
+<pre><code>//Overrides the return value of GetClientPseudoName() that the server recieves.
+//This does not change the "truth" value, but instead replaces the return value of the function responsible for handling the "truthful" PseudoName.
+//Note that the PseudoName integer corresponds to multiple variants, selected by the player's class.
+
+//@param client             The target client index.
+//@param pseudoName         The desired PseudoName integer.
+
+native void OverrideClientPseudoName(int client, int pseudoName);
+</code></pre>
+<h4 id="restoreclientpseudoname"><code>RestoreClientPseudoName</code></h4>
+<pre><code>//Allows the server to set the PseudoName of this client normally.
+//Disables the replacements made in OverrideClientPseudoName().
+//Restores the source of "truth" to the original default logic.
+
+//@param client             The target client index.
+
+native void RestoreClientPseudoName(int client);
+</code></pre>
+<h2 id="-player-state-">- Player State -</h2>
+<h4 id="getclientstate"><code>GetClientState</code></h4>
+<pre><code>//Returns the PlayerState of a client index.
+//Returns -1 if client index is invalid.
+
+//@param client             The target client index.
+//@return                   The PlayerState of the provided client, formatted as described above.
+
+native any GetClientState(int client);
+</code></pre>
+<h2 id="-client-roles-">- Client Roles -</h2>
+<h4 id="getclientroleid"><code>GetClientRoleID</code></h4>
+<pre><code>//Returns client index's Treason role as "treasonRole" or "int".
+//Returns 0 (TRole_Unassigned / TR_None) if unassigned.
+//Values above 5 (TR_Annihilator) are not valid.
+//This value does not fully dictate the current state or visible role of the player at all times.
+//If you do not know what this does, use GetClientRole() instead.
+
+//@param client             The target client index.
+//@return                   The Treason role of the provided client, formatted as described above.
+
+native any GetClientRoleID(int client);
+</code></pre>
+<h4 id="setclientroleid"><code>SetClientRoleID</code></h4>
+<pre><code>//Sets a client index's role id on the server.
+//This does not update the player's role, this only sets the value.
+//Returns false when a simple failure is detected.
+//Returns true on success.
+
+//@param client             The target client index.
+//@param client             The desired role to set, as an integer.
+//@return                   Returns false boolean on detected failure.
+
+native any SetClientRoleID(int client, int role);
+</code></pre>
+<h4 id="getclientrole"><code>GetClientRole</code></h4>
+<pre><code>//Returns client index's Treason role as "treasonRole" or "int".
+//Returns 0 (TRole_Unassigned / TR_None) if unassigned, spectator, or dead.
+//Dead players are "filtered out" and return 0 (TRole_Unassigned / TR_None).
+
+//@param client             The target client index.
+//@return                   The Treason role of the provided client, formatted as described above.
+
+native any GetClientRole(int client);
+</code></pre>
+<h4 id="setclientrole"><code>SetClientRole</code></h4>
+<pre><code>//Sets a client index's role.
+//Returns false when a simple failure is detected.
+//Returns true on success.
+//May return true even if the SDKCall fails. (uncommon)
+
+//@param client             The target client index.
+//@param client             The desired role to set, as an integer.
+//@return                   Returns false boolean on detected failure.
+
+native any SetClientRole(int client, int role);
+</code></pre>
+<h4 id="getclientroleunfiltered"><code>GetClientRoleUnfiltered</code></h4>
+<pre><code>//Returns client index's Treason role as "treasonRole" or "int", without any PlayerState checks.
+//Returns 0 (TRole_Unassigned / TR_None) only if unassigned.
+//Death does not affect the return value. A dead traitor/solo still returns TR_Traitor/TR_Solo using this function.
+//Does not return TR_Ghost.
+
+//@param client             The target client index.
+//@return                   The Treason role of the provided client, formatted as described above.
+
+native any GetClientRoleUnfiltered(int client);
+</code></pre>
+<h4 id="getclientrolename"><code>GetClientRoleName</code></h4>
+<pre><code>//Gets client index's role name as an char[] and copies the result to a pre-existing array.
+//Includes all non-conventional role names such as "Ghost" and custom roles, if also desired.
+//Does not work without treason_customroles (TCR) installed.
+//Returns true if successful.
+//Returns false if client index is invalid or another error occurs.
+
+//@param client             The target client index.
+//@param includeCustomRoles Whether the output char[] should include custom role names.
+//@param name               A char[] to copy the output of this function to.
+//@param maxlength          The maximum length of the output array.
+//@return                   Returns true if successful.
+
+native any GetClientRoleName(int client, bool includeCustomRoles, char[] name, int maxlength);
+</code></pre>
+<h4 id="getclientrolenamevanilla"><code>GetClientRoleNameVanilla</code></h4>
+<pre><code>//Gets client index's role name as an char[] and copies the result to a pre-existing array.
+//Includes the non-conventional role name "Ghost".
+//Also works without treason_customroles (TCR) installed.
+//Returns true if successful.
+//Returns false if client index is invalid or another error occurs.
+
+//@param client             The target client index.
+//@param name               A char[] to copy the output of this function to.
+//@param maxlength          The maximum length of the output array.
+//@return                   Returns true if successful.
+
+native any GetClientRoleNameVanilla(int client, char[] name, int maxlength);
+</code></pre>
+<h4 id="getclientroleidname"><code>GetClientRoleIDName</code></h4>
+<pre><code>//Gets client index's role id name as an char[] and copies the result to a pre-existing array.
+//Output is decided based on the literal server memory values. This means "Ghost", custom roles, and "Solo" are all not possible outputs.
+//Also works without treason_customroles (TCR) installed.
+//Returns true if successful.
+//Returns false if client index is invalid or another error occurs.
+
+//@param client             The target client index.
+//@param name               A char[] to copy the output of this function to.
+//@param maxlength          The maximum length of the output array.
+//@return                   Returns true if successful.
+
+native any GetClientRoleIDName(int client, char[] name, int maxlength);
+</code></pre>
+<h2 id="-client-custom-roles-">- Client Custom Roles -</h2>
+<h4 id="isclientsolocustomrole"><code>IsClientSoloCustomRole</code></h4>
+<pre><code>//Returns true if the provided client index has a solo-based custom role.
+//Returns false otherwise.
+//Also returns false if the provided client index is invalid.
+
+//@param client             The target client index.
+//@return                   Returns true or false as formatted above.
+
+native any IsClientSoloCustomRole(int client);
+</code></pre>
+<h4 id="setclientcustomrole"><code>SetClientCustomRole</code></h4>
+<pre><code>//Sets the CustomRole of a client in memory without fully updating the cosmetics.
+//This applies to all HudText, player models, etc...
+//Returns false if the custom role index or client index is invalid.
+//Returns true on success.
+
+//@param client             The target client index.
+//@param customRoleIndex    The target custom role index.
+//@return                   Returns true on success, or false as formatted above.
+
+native bool SetClientCustomRole(int client, int customRoleIndex);
+</code></pre>
+<h4 id="resetclientcustomrole"><code>ResetClientCustomRole</code></h4>
+<pre><code>//Resets the CustomRole of a client in memory to be default (no custom role).
+
+//@param client             The target client index.
+
+native void ResetClientCustomRole(int client);
+</code></pre>
+<h4 id="getclientcustomroleindex"><code>GetClientCustomRoleIndex</code></h4>
+<pre><code>//Gets the CustomRole index of the given client index.
+//Returns -1 if client index is invalid.
+//Returns 0 if the client is not assigned a custom role.
+
+//@param client             The target client index.
+//@return                   The CustomRole index of the target client.
+
+native int GetClientCustomRoleIndex(int client);
+</code></pre>
+<h2 id="-weight-classes-">- Weight Classes -</h2>
+<h4 id="getclientclass"><code>GetClientClass</code></h4>
+<pre><code>//Returns client index's Treason class as "treasonClass" or "int"
+//Returns -1 if unassigned/inconclusive.
+
+//@param client             The target client index.
+//@return                   The Treason class of the provided client, formatted as described above.
+
+native any GetClientClass(int client);
+</code></pre>
+<h2 id="-abilities-">- Abilities -</h2>
+<h4 id="getclientability"><code>GetClientAbility</code></h4>
+<pre><code>//Returns client index's Treason ability from a specific slot (starting from 0)  as "treasonAbility" or "int"
+//Returns integer 0 if client index is invalid.
+
+//@param client             The target client index.
+//@param slot               The ability slot to return the value of, starting from 0, max 2. (3 available slots)
+
+native any GetClientAbility(int client, int slot);
+</code></pre>
+<h4 id="getclientabilities"><code>GetClientAbilities</code></h4>
+<pre><code>//Gets client index's Treason abilities as an int[3] and copies the result to a pre-existing int[3] array.
+//USE AN INT ARRAY WITH SIZE 3 FOR ALL THE DATA!
+//Returns true if successful.
+//Returns false if client index is invalid.
+
+//@param client             The target client index.
+//@param abilities          An int[] to copy the output of this function to. (Total 3 slots)
+//@param maxlength          The maximum length of the output array. (Your array should ideally always be size 3)
+
+native any GetClientAbilities(int client, int[] abilities, int maxlength);
+</code></pre>
+<h4 id="resetclientabilities"><code>ResetClientAbilities</code></h4>
+<pre><code>//Resets client index's Treason abilities.
+//Returns true if successful.
+//Returns false if client index is invalid.
+
+//@param client             The target client index.
+
+native any ResetClientAbilities(int client);
+</code></pre>
+<h4 id="addclientability"><code>AddClientAbility</code></h4>
+<pre><code>//Adds a Treason ability to the given client index.
+//Returns true if successful.
+//Returns false if client index is invalid.
+
+//@param client             The target client index.
+//@param ability            The desired ability id as an int.
+
+native any AddClientAbility(int client, int ability);
+</code></pre>
+<h2 id="-gadgets-">- Gadgets -</h2>
+<h4 id="getclientgadget"><code>GetClientGadget</code></h4>
+<pre><code>//Returns client index's Treason gadget from a specific slot (starting from 0)  as "treasonGadget" or "int"
+//Returns integer 0 if client index is invalid.
+
+//@param client             The target client index.
+//@param slot               The gadget slot to return the value of, starting from 0, max 2. (2 available slots)
+
+native any GetClientGadget(int client, int slot);
+</code></pre>
+<h4 id="getclientgadgets"><code>GetClientGadgets</code></h4>
+<pre><code>//Gets client index's Treason gadgets as an int[2] and copies the result to a pre-existing int[2] array.
+//USE AN INT ARRAY WITH SIZE 2 FOR ALL THE DATA!
+//Returns true if successful.
+//Returns false if client index is invalid.
+
+//@param client             The target client index.
+//@param gadgets            An int[] to copy the output of this function to. (Total 2 slots)
+//@param maxlength          The maximum length of the output array. (Your array should ideally always be size 2)
+
+native any GetClientGadgets(int client, int[] gadgets, int maxlength);
+</code></pre>
+<h4 id="resetclientgadgets"><code>ResetClientGadgets</code></h4>
+<pre><code>//Resets client index's Treason gadgets.
+//Returns true if successful.
+//Returns false if client index is invalid.
+
+//@param client             The target client index.
+
+native any ResetClientGadgets(int client);
+</code></pre>
+<h4 id="addclientgadget"><code>AddClientGadget</code></h4>
+<pre><code>//Adds a Treason gadget to the given client index.
+//Returns true if successful.
+//Returns false if client index is invalid.
+
+//@param client             The target client index.
+//@param ability            The desired gadget id as an int.
+
+native any AddClientGadget(int client, int gadget);
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

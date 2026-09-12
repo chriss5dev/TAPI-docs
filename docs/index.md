@@ -1,17 +1,20 @@
-# Welcome to MkDocs
+# Welcome to the official TAPI documentation!
+*"Treason-API"*
+</br>
+## [Table of Contents](nav.md)
+</br>
+## [GitHub Repository](https://github.com/chriss5dev/Treason-API)
+</br>
+## **About**
+*Note that Klaus Veen's Treason does NOT have an official SourceMod extension or abstraction layer as of 8/9/2026.
+This project is an abstraction layer that allows SourcePawn to interact with KVT using the built-in `native` system.*
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+The first goal of this project is to condense the amount of code required to interact with Treason-exclusive data, which improves readability.
+An example of this is fetching a client's Treason role using a single function `GetClientRole(client)`.
 
-## Commands
+The second goal of this project is to remove the need to patch every KVT plugin in the future, replacing it with a single plugin update.
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+The third (more recent) goal of this project is to expand the modding capabilities of Klaus Veen's Treason in a helpful direction.
+Hopefully, this API and its companion plugins will make Treason modding more accessible and open up new possibilities to those who create SourceMod plugins for Treason.
 
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+This project was originally made for my own personal use, but I hope people find use in it!
