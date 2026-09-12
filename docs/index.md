@@ -6,7 +6,7 @@
 ## [GitHub Repository](https://github.com/chriss5dev/Treason-API)
 </br>
 ## **About**
-*Note that Klaus Veen's Treason does NOT have an official SourceMod extension or abstraction layer as of 8/9/2026.
+*Note that Klaus Veen's Treason does NOT have an official SourceMod extension or abstraction layer as of 9/11/2026.
 This project is an abstraction layer that allows SourcePawn to interact with KVT using the built-in `native` system.*
 
 The first goal of this project is to condense the amount of code required to interact with Treason-exclusive data, which improves readability.
